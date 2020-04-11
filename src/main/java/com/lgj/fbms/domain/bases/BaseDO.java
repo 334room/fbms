@@ -17,4 +17,6 @@ public class BaseDO {
     private Long id;
 
     private Date createTime;
+
+    private Date lastUpdateTime;
 }
