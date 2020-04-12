@@ -18,4 +18,6 @@ public class BaseDTO {
     private Long id;
 
     private Date createTime;
+
+    private Date lastUpdateTime;
 }

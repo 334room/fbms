@@ -1,7 +1,8 @@
 package com.lgj.fbms.controller;
 
+import com.lgj.fbms.domain.dtos.UserDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author ：LGJ
@@ -12,5 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @Slf4j
+@RequestMapping("user")
 public class UserController {
 }
