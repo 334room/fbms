@@ -1,5 +1,6 @@
 package com.lgj.fbms.domain.bases;
 
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 
 import java.util.Date;
@@ -20,4 +21,5 @@ public class BaseDTO {
     private Date createTime;
 
     private Date lastUpdateTime;
+
 }
