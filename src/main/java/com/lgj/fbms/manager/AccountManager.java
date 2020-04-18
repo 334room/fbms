@@ -1,6 +1,9 @@
 package com.lgj.fbms.manager;
 
+import com.lgj.fbms.domain.dos.AccountDO;
+import com.lgj.fbms.domain.dtos.AccountDTO;
 import com.lgj.fbms.mapper.IAccountMapper;
+import com.lgj.fbms.utils.DozerBeanUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -18,4 +21,18 @@ public class AccountManager {
 
     @Resource
     private IAccountMapper accountMapper;
+
+    public int insertOne(AccountDTO accountDTO) {
+        AccountDO accountDO = DozerBeanUtils.map(accountDTO, AccountDO.class);
+        int count = accountMapper.insert(accountDO);
+        if (count == 1) {
+            accountDTO.setId(accountDO.getId());
+            return count;
+        }
+        return 0;
+    }
+
+    public int deleteById(Long id){
+       return accountMapper.deleteById(id);
+    }
 }
