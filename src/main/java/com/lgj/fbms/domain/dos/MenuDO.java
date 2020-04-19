@@ -1,5 +1,7 @@
 package com.lgj.fbms.domain.dos;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.lgj.fbms.domain.bases.BaseDO;
 import lombok.Data;
 
@@ -12,16 +14,22 @@ import lombok.Data;
  */
 
 @Data
+@TableName("menu")
 public class MenuDO extends BaseDO {
 
+    @TableField("parent_id")
     private Long parentId;
 
+    @TableField("menu_name")
     private String menuName;
 
+    @TableField("on_off")
     private Boolean onOff;
 
+    @TableField("menu_rank_code")
     private String menuRankCode;
 
+    @TableField("describe")
     private String describe;
 
 }

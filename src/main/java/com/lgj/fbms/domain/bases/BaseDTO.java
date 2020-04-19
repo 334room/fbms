@@ -20,4 +20,5 @@ public class BaseDTO {
     private Date createTime;
 
     private Date lastUpdateTime;
+
 }

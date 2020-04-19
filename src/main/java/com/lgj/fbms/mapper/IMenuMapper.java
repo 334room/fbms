@@ -1,18 +1,19 @@
 package com.lgj.fbms.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lgj.fbms.domain.dos.UserDO;
+import com.lgj.fbms.domain.dos.MenuDO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 /**
  * @author ：LGJ
- * @date ：Created in 2020/4/6 18:03
- * @description：用户数据连接接口
+ * @date ：Created in 2020/4/18 16:42
+ * @description：菜单数据连接接口
  * @modified By：
  * @version: 1.0
  */
+
 @Repository
 @Mapper
-public interface IUserMapper extends BaseMapper<UserDO> {
+public interface IMenuMapper extends BaseMapper<MenuDO> {
 }
