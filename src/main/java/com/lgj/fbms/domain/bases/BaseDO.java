@@ -1,5 +1,8 @@
 package com.lgj.fbms.domain.bases;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.util.Date;
@@ -14,9 +17,13 @@ import java.util.Date;
 @Data
 public class BaseDO {
 
+    @TableId(value = "id",type = IdType.AUTO)
     private Long id;
 
+    @TableField("create_time")
     private Date createTime;
 
+    @TableField("last_update_time")
     private Date lastUpdateTime;
+
 }
