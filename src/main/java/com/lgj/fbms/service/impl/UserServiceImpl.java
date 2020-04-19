@@ -11,6 +11,7 @@ import com.lgj.fbms.service.IUserService;
 import com.lgj.fbms.utils.DozerBeanUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -32,6 +33,7 @@ public class UserServiceImpl implements IUserService {
     private AccountManager accountManager;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public AccountDTO register(UserVO userVO) throws Exception {
         AccountDTO accountDTO = new AccountDTO();
         accountDTO.setAccount(userVO.getAccount());
