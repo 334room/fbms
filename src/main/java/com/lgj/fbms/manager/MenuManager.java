@@ -1,5 +1,6 @@
 package com.lgj.fbms.manager;
 
+import com.lgj.fbms.domain.dos.MenuDO;
 import com.lgj.fbms.mapper.IMenuMapper;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +15,6 @@ import javax.annotation.Resource;
  */
 
 @Component
-public class MenuManager {
+public class MenuManager extends BaseManager<IMenuMapper, MenuDO> {
 
-    @Resource
-    private IMenuMapper menuMapper;
 }

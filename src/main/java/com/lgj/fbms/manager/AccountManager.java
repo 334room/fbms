@@ -17,22 +17,6 @@ import javax.annotation.Resource;
  */
 
 @Component
-public class AccountManager {
+public class AccountManager extends BaseManager<IAccountMapper, AccountDO>{
 
-    @Resource
-    private IAccountMapper accountMapper;
-
-    public int insertOne(AccountDTO accountDTO) {
-        AccountDO accountDO = DozerBeanUtils.map(accountDTO, AccountDO.class);
-        int count = accountMapper.insert(accountDO);
-        if (count == 1) {
-            accountDTO.setId(accountDO.getId());
-            return count;
-        }
-        return 0;
-    }
-
-    public int deleteById(Long id){
-       return accountMapper.deleteById(id);
-    }
 }

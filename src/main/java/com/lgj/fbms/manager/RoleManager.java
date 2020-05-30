@@ -1,5 +1,6 @@
 package com.lgj.fbms.manager;
 
+import com.lgj.fbms.domain.dos.RoleDO;
 import com.lgj.fbms.mapper.IRoleMapper;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +15,6 @@ import javax.annotation.Resource;
  */
 
 @Component
-public class RoleManager {
+public class RoleManager extends BaseManager<IRoleMapper, RoleDO> {
 
-    @Resource
-    private IRoleMapper roleMapper;
 }

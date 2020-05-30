@@ -1,5 +1,7 @@
 package com.lgj.fbms.service.impl;
 
+import com.lgj.fbms.domain.dos.AccountDO;
+import com.lgj.fbms.domain.dos.UserDO;
 import com.lgj.fbms.domain.dtos.AccountDTO;
 import com.lgj.fbms.domain.dtos.UserDTO;
 import com.lgj.fbms.domain.vos.UserVO;
@@ -38,14 +40,16 @@ public class UserServiceImpl implements IUserService {
         AccountDTO accountDTO = new AccountDTO();
         accountDTO.setAccount(userVO.getAccount());
         accountDTO.setPassword(userVO.getPassword());
-        int count = accountManager.insertOne(accountDTO);
+        AccountDO accountDO = DozerBeanUtils.map(accountDTO, AccountDO.class);
+        int count = accountManager.insertOne(accountDO);
         if (count == 0) {
             throw new FbmsException(FbmsErrorCode.REGISTER_FAIL.getMessage());
         }
         UserDTO userDTO = DozerBeanUtils.map(userVO, UserDTO.class);
-        userDTO.setAccountId(accountDTO.getId());
-        count=userManager.insertOne(userDTO);
-        if(count==0){
+        userDTO.setAccountId(accountDO.getId());
+        UserDO userDO=DozerBeanUtils.map(userDTO, UserDO.class);
+        count = userManager.insertOne(userDO);
+        if (count == 0) {
             accountManager.deleteById(accountDTO.getId());
             throw new FbmsException(FbmsErrorCode.REGISTER_FAIL.getMessage());
         }
